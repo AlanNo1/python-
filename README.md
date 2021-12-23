@@ -1,0 +1,4 @@
+requests
+jieba
+imageio
+wordcloud
