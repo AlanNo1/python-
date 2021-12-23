@@ -31,15 +31,18 @@ def gen_img(texts, img_file):
     data = ' '.join(text for text in texts)
     image_coloring = imread(img_file)
     wc = WordCloud(
+        scale = 4,
+        width = 1920,
+        height = 1280,
         background_color="white",
         prefer_horizontal=0.5,
         repeat=True,
-        mask=image_coloring,
+        # mask=image_coloring,
         font_path=r'C:\Windows\Fonts\FZSTK.TTF',  # 方正舒体
         contour_width=2,
         contour_color='pink',
         collocation_threshold=100,
-        stopwords=remove_words  # 去除关键字
+        stopwords=remove_words,  # 去除关键字
     )
     wc.generate(data)
     wc.to_file(img_file.split('.')[0] + '_微博.png')
